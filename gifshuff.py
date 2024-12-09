@@ -1,3 +1,4 @@
+import os
 from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
@@ -135,6 +136,12 @@ stego_img_path = ttk.Entry(root,width=50)
 stego_img_path.grid(row=8 ,column=2) 
 
 
-btn_back=ttk.Entry(root, )
+def Back():
+    root.destroy()
+    subprocess.Popen(['python', "hide_in_image_page.py"], cwd=os.path.dirname(os.path.abspath(__file__)))
+
+btn_back=ttk.Button(root,text="back",command=Back )
+btn_back.grid(row=9,column=1,padx=10,pady=30)
+
 
 root.mainloop()

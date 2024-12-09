@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import ttk
 import subprocess
 import os
+import win32com.client
+
 
 def center_window(root, width, height):
     """Centers the window on the screen."""
@@ -12,22 +14,24 @@ def center_window(root, width, height):
     root.geometry(f'{width}x{height}+{x}+{y}')
 
 def open_tool(script_name):
-    """Opens the specified script."""
+    """Opens the specified script, executable, or shortcut file."""
+        # Assume it's a Python script
     root.destroy()
     subprocess.Popen(['python', script_name], cwd=os.path.dirname(os.path.abspath(__file__)))
 
+
 # Main window setup
 root = Tk()
-root.title("Steganography App")
-window_width = 800
-window_height = 500
+root.title("hide in image tools")
+window_width = 900
+window_height = 600
 center_window(root, window_width, window_height)
 root.configure(bg="#1e1e2f")
 
 # Title label
 title = ttk.Label(
     root, 
-    text="Steganography App", 
+    text="hide in image tools", 
     font=("Ubuntu", 24, "bold"), 
     foreground="white",
     background="#1e1e2f"
@@ -37,7 +41,7 @@ title.grid(row=0, column=0, columnspan=3, pady=(20, 10), sticky="n")
 # Subheading
 subheading = ttk.Label(
     root, 
-    text="Choose a category to hide data:", 
+    text="Choose a tool to hide data:", 
     font=("Ubuntu", 14), 
     foreground="lightgray",
     background="#1e1e2f"
@@ -60,10 +64,8 @@ style.map(
 
 # Buttons for each category
 categories = [
-    ("Hide Data in Audio", "audio_tool.py"),
-    ("Hide Data in Files", "hide_in_file_page.py"),
-    ("Hide Data in Images", "hide_in_image_page.py"),
-    ("Hide Data in Video", "video_tool.py")
+    ("Steghide tool", "steghide.py"),
+    ("Back", "home.py"),
 ]
 
 for i, (label, script) in enumerate(categories):
