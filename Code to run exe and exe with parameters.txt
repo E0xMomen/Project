@@ -1,0 +1,27 @@
+import subprocess
+"""
+subprocess.Popen(['D:\BFCI\Res\Steganography\Section 4\Tools\GIFShuff-Tool\GIFSHUF.exe',
+                  '-CS',
+                  '-m',
+                  'SecretMessage',
+                  '-p',
+                  'pass',
+                  'D:\BFCI\Res\Steganography\Section 4\Tools\GIFShuff-Tool\carrier.gif',
+                  'D:\BFCI\Res\Steganography\Section 4\Tools\GIFShuff-Tool\output2027.gif',
+                  ])
+
+subprocess.Popen(['D:\BFCI\Res\Steganography\Section 4\Tools\GIFShuff-Tool\GIFSHUF.exe',
+                  '-C',
+                  '-p',
+                  'pass',
+                  'D:\BFCI\Res\Steganography\Section 4\Tools\GIFShuff-Tool\output2027.gif',
+                  ])
+x = subprocess.getoutput(['D:\BFCI\Res\Steganography\Section 4\Tools\GIFShuff-Tool\GIFSHUF.exe',
+                  '-C',
+                  '-p',
+                  'pass',
+                  'D:\BFCI\Res\Steganography\Section 4\Tools\GIFShuff-Tool\output2027.gif',
+                  ])
+print(x)                  
+"""
+subprocess.Popen('D:\BFCI\Res\Steganography\Section 4\Tools\S-Tools\s-tools4\S-Tools.exe')
