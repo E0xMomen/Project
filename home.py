@@ -60,10 +60,10 @@ style.map(
 
 # Buttons for each category
 categories = [
-    ("Hide Data in Audio", "audio_tool.py"),
+    ("Hide Data in Audio", "hide_in_audio_page.py"),
     ("Hide Data in Files", "hide_in_file_page.py"),
     ("Hide Data in Images", "hide_in_image_page.py"),
-    ("Hide Data in Video", "video_tool.py")
+    ("Hide Data in Video", "hide_in_video_page.py")
 ]
 
 for i, (label, script) in enumerate(categories):

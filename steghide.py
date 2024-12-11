@@ -20,7 +20,6 @@ window_width = 800
 window_height = 450
 center_window(window_width, window_height)
 
-root.configure(bg="#1e1e2f")
 def steghide(message,password,carrier):
     subprocess.Popen(["Tools/hide in files/steghide/steghide.exe"
                       ,"embed"
