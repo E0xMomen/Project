@@ -34,17 +34,14 @@ def open_tool(script_name):
 root = Tk()
 root.title("hide in image tools")
 window_width = 900
-window_height = 600
+window_height = 700
 center_window(root, window_width, window_height)
-root.configure(bg="#1e1e2f")
 
 # Title label
 title = ttk.Label(
     root, 
     text="hide in image tools", 
     font=("Ubuntu", 24, "bold"), 
-    foreground="white",
-    background="#1e1e2f"
 )
 title.grid(row=0, column=0, columnspan=3, pady=(20, 10), sticky="n")
 
@@ -53,8 +50,6 @@ subheading = ttk.Label(
     root, 
     text="Choose a tool to hide data:", 
     font=("Ubuntu", 14), 
-    foreground="lightgray",
-    background="#1e1e2f"
 )
 subheading.grid(row=1, column=0, columnspan=3, pady=(0, 20), sticky="n")
 

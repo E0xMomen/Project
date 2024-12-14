@@ -16,8 +16,8 @@ def center_window(width, height):
 root = Tk()
 root.title("Steghide Tool")
 root.config()
-window_width = 800
-window_height = 500
+window_width = 900
+window_height = 530
 center_window(window_width, window_height)
 
 def mp3stego(message,password,carrier,outfilename):
@@ -138,7 +138,10 @@ def hidebutton():
     passw= password.get()
     output_file_name = name_stego_file.get()
 
-    mp3stego(secret_message,passw,carrier_file,output_file_name)
+    if carrier_file == '' or secret_message == '' or passw == '' or output_file_name == '' :
+        messagebox.showerror("Error", "Please fill all the fields")
+    else:
+        mp3stego(secret_message,passw,carrier_file,output_file_name)
 
 btn_hide = ttk.Button(root, text="hide",command = hidebutton) 
 btn_hide.grid(row=7 , column=3 ,padx=10 ,pady=10 )
@@ -159,7 +162,11 @@ extract.grid(row=9 ,column=2 ,padx=10,pady=10)
 def extract_hidden_message():
      passw= password.get()
      path = stego_file_path.get()
-     mp3stego_extract(passw,path)
+     
+     if path == '' or passw == '' :
+        messagebox.showerror("Error", "Enter the password and select the path of stego file")
+     else:
+        mp3stego_extract(passw,path)
 
 
 btn_extract = ttk.Button(root, text="extract", command=extract_hidden_message)

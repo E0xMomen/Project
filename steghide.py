@@ -16,8 +16,8 @@ def center_window(width, height):
 root = Tk()
 root.title("Steghide Tool")
 root.config()
-window_width = 800
-window_height = 450
+window_width = 900
+window_height = 500
 center_window(window_width, window_height)
 
 def steghide(message,password,carrier):
@@ -110,7 +110,10 @@ def hidebutton():
     secret_message = path_secret_mesaage.get() 
     passw= password.get()
 
-    steghide(secret_message,passw,carrier_fiile)
+    if carrier_fiile == '' or secret_message == '' or passw == '' :
+        messagebox.showerror("Error", "Please fill all the fields")
+    else:
+        steghide(secret_message,passw,carrier_fiile)
 
 btn_hide = ttk.Button(root, text="hide",command = hidebutton) 
 btn_hide.grid(row=6 , column=3 ,padx=10 ,pady=10 )
@@ -133,7 +136,11 @@ extract.grid(row=8 ,column=2 ,padx=10,pady=10)
 def extract_hidden_message():
      path = stego_file_path.get()
      passw= password.get()
-     steghide_extract(path,passw)
+     
+     if path == '' or passw == '' :
+         messagebox.showerror("Error", "Enter the password and select the path of stego file")
+     else:
+        steghide_extract(path,passw)
 
 
 btn_extract = ttk.Button(root, text="extract", command=extract_hidden_message)

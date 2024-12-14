@@ -16,7 +16,7 @@ def center_window(width, height):
 root = Tk()
 root.title("GifShuff Tool")
 root.config()
-window_width = 800
+window_width = 850
 window_height = 500
 center_window(window_width, window_height)
 
@@ -51,29 +51,29 @@ title.grid(row=1 ,column=0, columnspan=6 ,padx=10 ,pady=10)
 message_label = ttk.Label(root,text="Enter message to hide")  
 message_label.grid(row=2 , column=1,padx=10, pady=10)
 
-message = ttk.Entry(root,width=30)
+message = ttk.Entry(root,width=50)
 message.grid(row=2 ,column=2) 
 
 
 #password
 pass_label = ttk.Label(root,text="Enter password ")  
-pass_label.grid(row=3 , column=3,padx=10, pady=10)
+pass_label.grid(row=2 , column=3,padx=10, pady=10)
 
 password = ttk.Entry(root,width=20)
-password.grid(row=3 ,column=4) 
+password.grid(row=2 ,column=4) 
 
 #name of out img
 out_img_name_label = ttk.Label(root,text="Enetr the stego image name")
 out_img_name_label.grid(row=3 ,column=1,padx=10,pady=10)
 
-out_img_name = ttk.Entry(root,width=30)
+out_img_name = ttk.Entry(root,width=50)
 out_img_name.grid(row=3 ,column=2,padx=10,pady=10)
 
 
 path_carrier_img_label= ttk.Label(root ,text = "path of the carrier img")
 path_carrier_img_label.grid(row=4 , column=1 ,padx=10 ,pady=10)
     
-path_carrier_img = ttk.Entry(root,width=30)
+path_carrier_img = ttk.Entry(root,width=50)
 path_carrier_img.grid(row=4, column=2,padx=10,pady=10)
     
 #select button 
@@ -84,14 +84,33 @@ def upload_img():
 btn_select = ttk.Button(root, text="upload",command = upload_img) 
 btn_select.grid(row=5 , column=1 ,padx=10 ,pady=10 )
 
+
+
+def clear_form():
+    pass
+    message.delete(0,"end")
+    password.delete(0,"end")
+    out_img_name.delete(0,"end")
+    path_carrier_img.delete(0,"end")
+    stego_img_path.delete(0,"end")
+    extract.delete(0,"end")
+    
+btn_clear= ttk.Button(root, text="clear",command = clear_form) 
+btn_clear.grid(row=5, column=2 ,padx=10 ,pady=10 )
+
+
+
 #hide button
 def hidebutton():
     carrier_img = path_carrier_img.get()
     passw= password.get()
     hidden_message = message.get()
     name_stego_img = out_img_name.get()
-
-    gifshuff(hidden_message,passw,carrier_img,name_stego_img)
+    
+    if carrier_img == "" or passw == "" or hidden_message == "" or name_stego_img == "":
+        messagebox.showerror("Error","Please fill all the fields")
+    else:
+        gifshuff(hidden_message,passw,carrier_img,name_stego_img)
 
 btn_hide = ttk.Button(root, text="hide",command = hidebutton) 
 btn_hide.grid(row=5 , column=3 ,padx=10 ,pady=10 )
@@ -103,7 +122,6 @@ title.grid(row=6 ,column=0, columnspan=6 ,padx=10 ,pady=10)
 
 #btn extract 
 
-
 extract_label= ttk.Label(root, text="the hidde data")
 extract_label.grid(row=7 ,column=1 , padx=10 ,pady=10)
 
@@ -114,7 +132,11 @@ extract.grid(row=7 ,column=2 ,padx=10,pady=10)
 def extract_hidden_message():
      path = stego_img_path.get()
      passw= password.get()
-     gifshuff_extract(passw,path)
+     
+     if path == "" or passw == "":
+        messagebox.showerror("Error","Enter the password and select the path of stego file")
+     else:   
+        gifshuff_extract(passw,path)
 
 
 btn_extract = ttk.Button(root, text="extract", command=extract_hidden_message)
@@ -127,7 +149,7 @@ def upload_stego_img():
     
      
 btn_upload = ttk.Button(root, text="upload",command=upload_stego_img)
-btn_upload.grid(row=7 , column=4 ,padx=10 ,pady=10)
+btn_upload.grid(row=8 , column=3 ,padx=10 ,pady=10)
 
 stego_img_label =  ttk.Label(root, text="stego image path")
 stego_img_label.grid(row=8,column=1)
@@ -141,7 +163,7 @@ def Back():
     subprocess.Popen(['python', "hide_in_image_page.py"], cwd=os.path.dirname(os.path.abspath(__file__)))
 
 btn_back=ttk.Button(root,text="back",command=Back )
-btn_back.grid(row=9,column=1,padx=10,pady=30)
+btn_back.grid(row=9,column=1,padx=10,pady=15)
 
 
 root.mainloop()
