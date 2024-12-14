@@ -2,7 +2,6 @@ from tkinter import *
 from tkinter import ttk
 import subprocess
 import os
-import win32com.client
 
 
 def center_window(root, width, height):
@@ -15,14 +14,20 @@ def center_window(root, width, height):
 
 def open_tool(script_name):
     """Opens the specified script, executable, or shortcut file."""
-        # Assume it's a Python script
-    root.destroy()
-    subprocess.Popen(['python', script_name], cwd=os.path.dirname(os.path.abspath(__file__)))
+    
+    # Check the file extension and handle accordingly
+    if script_name.endswith(".py"):  # Python script
+        subprocess.Popen(['python', script_name], cwd=os.path.dirname(os.path.abspath(__file__)))
+        root.destroy()
+    elif script_name.endswith(".jar"):  # Java JAR file
+        subprocess.Popen(['java', '-jar', script_name], cwd=os.path.dirname(os.path.abspath(__file__)))
+    else:
+        print(f"Unsupported file type for {script_name}")
 
 
 # Main window setup
 root = Tk()
-root.title("hide in image tools")
+root.title("hide in txt tools")
 window_width = 900
 window_height = 600
 center_window(root, window_width, window_height)
@@ -30,7 +35,7 @@ center_window(root, window_width, window_height)
 # Title label
 title = ttk.Label(
     root, 
-    text="hide in image tools", 
+    text="hide in text tools", 
     font=("Ubuntu", 24, "bold"), 
 )
 title.grid(row=0, column=0, columnspan=3, pady=(20, 10), sticky="n")
@@ -59,7 +64,8 @@ style.map(
 
 # Buttons for each category
 categories = [
-    ("Steghide tool", "steghide.py"),
+    ("Open Stego Tool", "Tools/hide in files/openstego-0.8.6/lib/openstego.jar"),
+    ("Snow tool", "snow_tool.py"),
     ("Back", "home.py"),
 ]
 

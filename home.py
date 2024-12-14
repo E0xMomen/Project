@@ -57,7 +57,7 @@ style.map(
 # Buttons for each category
 categories = [
     ("Hide Data in Audio", "hide_in_audio_page.py"),
-    ("Hide Data in Files", "hide_in_file_page.py"),
+    ("Hide Data in txt files", "hide_in_txt_page.py"),
     ("Hide Data in Images", "hide_in_image_page.py"),
     ("Hide Data in Video", "hide_in_video_page.py")
 ]

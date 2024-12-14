@@ -49,7 +49,7 @@ def open_tool(script_name):
 
 # Main window setup
 root = Tk()
-root.title("Hide in Audio Tools")
+root.title("Hide in Video Tools")
 window_width = 900
 window_height = 600
 center_window(root, window_width, window_height)
