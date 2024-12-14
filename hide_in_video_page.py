@@ -57,7 +57,7 @@ center_window(root, window_width, window_height)
 # Title label
 title = ttk.Label(
     root, 
-    text="Hide in Audio Tools", 
+    text="Hide in Video Tools", 
     font=("Ubuntu", 24, "bold"), 
 )
 title.grid(row=0, column=0, columnspan=3, pady=(20, 10), sticky="n")
