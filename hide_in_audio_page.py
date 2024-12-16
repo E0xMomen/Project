@@ -87,8 +87,8 @@ style.map(
 # Buttons for each category
 categories = [
     ("Mp3Stego tool", "mp3stego.py"),
-    ("Deepsound tool", "Tools/hide in audio/DeepSound.lnk"),
     ("steghide tool", "steghide.py"),
+     ("Deepsound tool", "Tools/hide in audio/DeepSound.lnk"),
     ("Back", "home.py"),
 ]
 

@@ -30,7 +30,7 @@ def gifshuff(message,password,carrier,outimg):
                       ,carrier
                       ,outimg
                       ])
-
+    messagebox.showinfo("info ","message embdded successfully")
 def gifshuff_extract(password,stegoimg):
         message= subprocess.getoutput(["Tools/hide in images/GIFShuff-Tool/GIFSHUF.EXE"
                       ,"-C"
@@ -39,6 +39,7 @@ def gifshuff_extract(password,stegoimg):
                       ,stegoimg
                       ])
         extract.insert(0,message)
+        messagebox.showinfo("info ","message extracted successfully")
 
 title= ttk.Label(root , text="GiFShuff tool GUI",font="Ubuntu 20 bold")
 title.grid(row=0 ,column=0, columnspan=6 ,padx=20 ,pady=10)

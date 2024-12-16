@@ -14,7 +14,7 @@ def center_window(width, height):
     root.geometry(f'{width}x{height}+{x}+{y}')
 
 root = Tk()
-root.title("Steghide Tool")
+root.title("Mp3Stego Tool")
 root.config()
 window_width = 900
 window_height = 530
